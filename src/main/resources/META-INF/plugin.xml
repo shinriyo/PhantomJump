@@ -25,6 +25,18 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <!-- 通知グループを登録 -->
+        <notificationGroup id="PhantomJump" displayType="BALLOON" />
     </extensions>
+
+    <!-- Actions defined by the plugin -->
+    <actions>
+        <action id="PhantomJump.PhantomJumpAction"
+                class="com.shinriyo.phantomjump.PhantomJumpAction"
+                text="Phantom Jump"
+                description="Jump to symbol even in comments">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt J"/>
+        </action>
+    </actions>
 </idea-plugin>
